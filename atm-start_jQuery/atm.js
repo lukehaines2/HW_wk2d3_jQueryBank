@@ -1,44 +1,43 @@
 $(document).ready(function(){
   console.log('ready');
 
-// variable 1 = specify where it is
-// variable 2 = pull it out .text
-// variable 3 = change it to number by removing the dollar sign. (use parse)
-function getCurrentTotal() {
-var currentBalance = 0;
-currentBalance += inputBoxValue
-var newAccountBalance = parseInt('currentBalance')
- // to remove the dollar sign. make it 2 decimals
-}
-// $('#balance1').on('change', checkFunds)
+//The entire DEPOSIT side of CURRENT ACCOUNT
+function depositFunds1(){
+  var previousBalance = $('#balance1');
+  var result = $(previousBalance).text();
+  var currentBalance = parseInt(result.replace("$", ""));
+  var newFunds = parseInt($('#amount1').val());
 
+  previousBalance.text(function() {
+    var total = currentBalance + newFunds;
+    return "$" + total;
+  });
+
+$('#amount1').val('')
+$('#balance1').css('background-color', 'grey')
+}
+
+//on change fucntion for the check funds function so that it shows up as red
+$('#balance1').on('change', checkFunds)
 checkFunds();
 //on page load check it. but then on a change event check again.
 function checkFunds() {
-if (getFunds() === 0) {
+if ('amount1' === 0) {
 $('#balance1').css("background-color","red");
 } else {
-  $('#balance1').css("background-color","green");
-}
-
-
-}
+  $('#balance1').css("background-color","grey");
+}}
 //deposit click event
-$('#deposit1').on('click', getFunds)
+$('#deposit1').on('click', depositFunds1)
 
-//find the value of the input box
-function getFunds() {
-  var inputAmount = $("#amount1").val();
-  $("#balance1").text('$' + inputAmount);
-  return Number(inputAmount);
-}
+// //find the value of the input box
+// function getFunds() {
+//   var inputAmount = $("#amount1").val();
+//   $("#balance1").text('$' + inputAmount);
+//   return Number(inputAmount);
+// }
 
-function depositFunds(){
-  var previousBalance = $('#balance1');
-  var result = $(previousBalance).text();
-  var currentBalance = $parseInt(result.replace("$", ""));
 
-}
 
   
 });
