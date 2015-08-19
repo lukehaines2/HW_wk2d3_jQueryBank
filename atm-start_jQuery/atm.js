@@ -2,19 +2,29 @@ $(document).ready(function(){
   console.log('ready');
 
 
-//Get it to deposit money
-//-event listener to execute the copy of deposit value to the 'Display text'.
 //-clicking button executes the function in the event listener.
 
 // variable 1 = specify where it is
 // variable 2 = pull it out .text
 // variable 3 = change it to number by removing the dollar sign. (use parse)
+function getCurrentTotal() {
+var currentBalance = $("#balance1").val();
+console.log(currentBalance);
+new balance = currentbalance + inputBoxValue
+var newAccountBalance = parseInt(currentBalance)
+ // to remove the dollar sign. make it 2 decimals
+console.log(getCurrentTotal)
+}
+
+
+
+//withdraw click event
 $('#deposit1').on('click', getFunds)
 
 //find the value of the input box
 function getFunds() {
-  var getvalue = $("#amount1").val();
-  console.log(getvalue);
+  var inputAmount = $("#amount1").val();
+  $("#balance1").text('$' + inputAmount);
 }
   
 })
