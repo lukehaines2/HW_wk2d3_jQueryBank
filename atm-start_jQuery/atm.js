@@ -10,7 +10,9 @@ currentBalance += inputBoxValue
 var newAccountBalance = parseInt('currentBalance')
  // to remove the dollar sign. make it 2 decimals
 }
-
+if (getFunds() === 0) {
+$('#balance1').css("background-color","red");
+}
 //deposit click event
 $('#deposit1').on('click', getFunds)
 
@@ -18,10 +20,22 @@ $('#deposit1').on('click', getFunds)
 function getFunds() {
   var inputAmount = $("#amount1").val();
   $("#balance1").text('$' + inputAmount);
+  return Number(inputAmount);
 }
-  
-})
 
+// function depositFunds(){}
+
+  
+});
+
+
+
+// })
+// function() {
+// var currentInputBox = $('#balance1').html()
+// var currentInputBoxHTML currentInputBox.replace('$', '')
+// return 
+// }
 // var button = $('deposit1').on("click", "#filter", function() {
 //     alert('clicked!');
 // });
@@ -31,11 +45,6 @@ function getFunds() {
 //if total > 0 return total. otherwise, 'return' so that it does nothing/goes back to where you were
 
 //1. change box to red 
-
-
-// var balanceBackground = $('balance').css("background-color","red");
-// console.log(balanceBackground);
-
 
 
 //2. change box back to green
