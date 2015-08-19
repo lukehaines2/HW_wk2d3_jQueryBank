@@ -1,13 +1,13 @@
 function addFundsE(){
     var previousBalance = $('#balance1');
    var result = $(previousBalance).text();
-   console.log(result)
+   // console.log(result)
 
    var currentBalance = parseInt(result.replace("$", ""));
-   console.log(currentBalance)
+   // console.log(currentBalance)
   
     var newFunds = parseInt($('#amount1').val());
-    console.log(newFunds)
+    // console.log(newFunds)
 
     previousBalance.text(function(){
         var total = currentBalance + newFunds;

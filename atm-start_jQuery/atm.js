@@ -10,8 +10,18 @@ currentBalance += inputBoxValue
 var newAccountBalance = parseInt('currentBalance')
  // to remove the dollar sign. make it 2 decimals
 }
+// $('#balance1').on('change', checkFunds)
+
+checkFunds();
+//on page load check it. but then on a change event check again.
+function checkFunds() {
 if (getFunds() === 0) {
 $('#balance1').css("background-color","red");
+} else {
+  $('#balance1').css("background-color","green");
+}
+
+
 }
 //deposit click event
 $('#deposit1').on('click', getFunds)
@@ -23,7 +33,12 @@ function getFunds() {
   return Number(inputAmount);
 }
 
-// function depositFunds(){}
+function depositFunds(){
+  var previousBalance = $('#balance1');
+  var result = $(previousBalance).text();
+  var currentBalance = $parseInt(result.replace("$", ""));
+
+}
 
   
 });
