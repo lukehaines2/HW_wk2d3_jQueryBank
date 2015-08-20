@@ -58,7 +58,7 @@ $('#balance2').css("background-color","red");
 //deposit click event
 $('#deposit1').on('click', depositFunds1)
 $('#deposit2').on('click', depositFunds2)
-$('#withdraw2').on('click', withdrawFunds2)
+$('#withdraw1').on('click', withdrawFunds1)
 $('#withdraw2').on('click', withdrawFunds2)
 
 
@@ -75,6 +75,8 @@ function getFunds2() {
   return Number(inputAmount2);
 }
 
+
+//Take money from current account NOT WORKING
 function withdrawFunds1() {
 
 var previousBalance = $('#balance1');
@@ -90,6 +92,25 @@ var previousBalance = $('#balance1');
 $('#amount1').val('')
 $('#balance1').css('background-color', 'grey')
 }
+
+
+//Take money from current account2
+function withdrawFunds2() {
+
+var previousBalance = $('#balance2');
+  var result = $(previousBalance).text();
+  var currentBalance = parseInt(result.replace("$", ""));
+  var newFunds = parseInt($('#amount2').val());
+
+  previousBalance.text(function() {
+    var total = currentBalance - newFunds;
+    return "$" + total;
+  });
+
+$('#amount2').val('')
+$('#balance2').css('background-color', 'grey')
+}
+
   
 });
 
