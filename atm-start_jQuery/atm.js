@@ -31,7 +31,7 @@ function depositFunds2(){
   });
 
 $('#amount2').val('')
-$('#balance2').css('background-color', 'grey')
+$('#balance2').css('background-color', '#E3E3E3')
 }
 
 //on change fucntion for the check funds function so that it shows up as red
@@ -42,8 +42,9 @@ function checkFunds() {
 if ( getFunds === 0) {
 $('#balance1').css("background-color","red");
 } else {
-  $('#balance1').css("background-color","grey");
-}}
+  $('#balance1').css("background-color","red");
+}
+}
 //deposit click event
 $('#deposit1').on('click', depositFunds1)
 $('#deposit2').on('click', depositFunds2)
@@ -55,6 +56,10 @@ function getFunds() {
   return Number(inputAmount);
 }
 
+
+function withdrawFunds1() {
+
+}
 
 
   
