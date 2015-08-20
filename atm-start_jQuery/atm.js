@@ -45,6 +45,16 @@ $('#balance1').css("background-color","red");
   $('#balance1').css("background-color","red");
 }
 }
+
+
+function checkFunds2() {
+if ( getFunds2 === 0) {
+$('#balance2').css("background-color","red");
+} else {
+  $('#balance2').css("background-color","red");
+}
+}
+
 //deposit click event
 $('#deposit1').on('click', depositFunds1)
 $('#deposit2').on('click', depositFunds2)
@@ -56,6 +66,11 @@ function getFunds() {
   return Number(inputAmount);
 }
 
+function getFunds2() {
+  var inputAmount = $("#amount2").val();
+  $("#balance2").text('$' + inputAmount);
+  return Number(inputAmount);
+}
 
 function withdrawFunds1() {
 
