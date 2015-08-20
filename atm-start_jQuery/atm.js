@@ -17,25 +17,43 @@ $('#amount1').val('')
 $('#balance1').css('background-color', 'grey')
 }
 
+
+//Deposit for SAVINGS ACCOUNT
+function depositFunds2(){
+  var previousBalance = $('#balance2');
+  var result = $(previousBalance).text();
+  var currentBalance = parseInt(result.replace("$", ""));
+  var newFunds = parseInt($('#amount2').val());
+
+  previousBalance.text(function() {
+    var total = currentBalance + newFunds;
+    return "$" + total;
+  });
+
+$('#amount2').val('')
+$('#balance2').css('background-color', 'grey')
+}
+
 //on change fucntion for the check funds function so that it shows up as red
 $('#balance1').on('change', checkFunds)
 checkFunds();
 //on page load check it. but then on a change event check again.
 function checkFunds() {
-if ('amount1' === 0) {
+if ( getFunds === 0) {
 $('#balance1').css("background-color","red");
 } else {
   $('#balance1').css("background-color","grey");
 }}
 //deposit click event
 $('#deposit1').on('click', depositFunds1)
+$('#deposit2').on('click', depositFunds2)
 
-// //find the value of the input box
-// function getFunds() {
-//   var inputAmount = $("#amount1").val();
-//   $("#balance1").text('$' + inputAmount);
-//   return Number(inputAmount);
-// }
+//find the value of the input box
+function getFunds() {
+  var inputAmount = $("#amount1").val();
+  $("#balance1").text('$' + inputAmount);
+  return Number(inputAmount);
+}
 
 
 
