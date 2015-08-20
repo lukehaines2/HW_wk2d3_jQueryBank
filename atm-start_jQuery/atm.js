@@ -58,6 +58,9 @@ $('#balance2').css("background-color","red");
 //deposit click event
 $('#deposit1').on('click', depositFunds1)
 $('#deposit2').on('click', depositFunds2)
+$('#withdraw2').on('click', withdrawFunds2)
+$('#withdraw2').on('click', withdrawFunds2)
+
 
 //find the value of the input box
 function getFunds() {
@@ -65,18 +68,28 @@ function getFunds() {
   $("#balance1").text('$' + inputAmount);
   return Number(inputAmount);
 }
-
+//Need to refactor this one. 
 function getFunds2() {
-  var inputAmount = $("#amount2").val();
+  var inputAmount2 = $("#amount2").val();
   $("#balance2").text('$' + inputAmount);
-  return Number(inputAmount);
+  return Number(inputAmount2);
 }
 
 function withdrawFunds1() {
 
+var previousBalance = $('#balance1');
+  var result = $(previousBalance).text();
+  var currentBalance = parseInt(result.replace("$", ""));
+  var newFunds = parseInt($('#amount1').val());
+
+  previousBalance.text(function() {
+    var total = currentBalance - newFunds;
+    return "$" + total;
+  });
+
+$('#amount1').val('')
+$('#balance1').css('background-color', 'grey')
 }
-
-
   
 });
 
